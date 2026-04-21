@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-cursive: "Cormorant Garamond", serif;
+  
+  /* Static defaults — Tailwind needs literal values here */
+  --color-rose: #e8a0bf;
+  --color-blush: #f5d5e0;
+  --color-champagne: #f7e7ce;
+  --color-deep-plum: #2d1b33;
+  --color-midnight: #1a0f1f;
+  --color-gold: #d4a853;
+  --color-glass: rgba(255, 255, 255, 0.06);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-midnight text-blush font-sans antialiased selection:bg-rose/30 selection:text-white overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-glass backdrop-blur-xl border border-glass-border shadow-2xl rounded-2xl;
+  }
+  .text-glow {
+    text-shadow: 0 0 20px rgba(232, 160, 191, 0.5);
+  }
+  .box-glow {
+    box-shadow: 0 0 30px rgba(212, 168, 83, 0.3);
+  }
+  
+  .animated-gradient-text {
+    background: linear-gradient(to right, #f7e7ce, #e8a0bf, #f5d5e0, #f7e7ce);
+    background-size: 300% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shine 4s linear infinite;
+  }
+}
+
+@keyframes shine {
+  to { background-position: 300% center; }
+}
+
+@keyframes eq {
+  0%   { transform: scaleY(0.2); }
+  100% { transform: scaleY(1.0); }
+}
+
+/* ── Dynamic Song Themes ───────────────────────────────────────────────────────
+   Applied to <html> element via JS (document.documentElement.classList).
+   These override the @theme static values because html.theme-X has higher
+   specificity than :root, so all var(--color-*) references update everywhere.
+──────────────────────────────────────────────────────────────────────────── */
+
+html {
+  transition: background-color 1.2s ease, color 1.2s ease;
+}
+
+/* Theme 0: Original Romantic — Dog Days Are Over */
+html.theme-0 {
+  --color-rose: #e8a0bf;
+  --color-blush: #f5d5e0;
+  --color-champagne: #f7e7ce;
+  --color-deep-plum: #2d1b33;
+  --color-midnight: #1a0f1f;
+  --color-gold: #d4a853;
+}
+
+/* Theme 1: Euphoric EDM — Carry You */
+html.theme-1 {
+  --color-rose: #00d4ff;
+  --color-blush: #bdf2ff;
+  --color-champagne: #e0ffff;
+  --color-deep-plum: #0a1128;
+  --color-midnight: #020b18;
+  --color-gold: #00f2fe;
+}
+
+/* Theme 2: Tropical House — Easy Love */
+html.theme-2 {
+  --color-rose: #38bdf8;
+  --color-blush: #e0f2fe;
+  --color-champagne: #fef08a;
+  --color-deep-plum: #064e3b;
+  --color-midnight: #042f2e;
+  --color-gold: #a3e635;
+}
+
+/* Theme 3: Emotional Pop — Takeaway */
+html.theme-3 {
+  --color-rose: #d8487b;
+  --color-blush: #fbcfe8;
+  --color-champagne: #fdf2f8;
+  --color-deep-plum: #4a044e;
+  --color-midnight: #28083a;
+  --color-gold: #d946ef;
+}
+
+/* Theme 4: Dreamy Cosmic — Something Just Like This */
+html.theme-4 {
+  --color-rose: #a78bfa;
+  --color-blush: #ede9fe;
+  --color-champagne: #f3f4f6;
+  --color-deep-plum: #2e1065;
+  --color-midnight: #0f172a;
+  --color-gold: #c084fc;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-midnight); }
+::-webkit-scrollbar-thumb { background: var(--color-deep-plum); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-rose); }
