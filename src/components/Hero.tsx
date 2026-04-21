@@ -60,11 +60,13 @@ export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
         <CountdownTimer />
       </motion.div>
 
-      <AnimatePresence>
-        {isUnlocked && (
+      <AnimatePresence mode="wait">
+        {isUnlocked ? (
           <motion.div
+            key="unlocked"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
             className="mt-12 flex flex-col items-center gap-6 overflow-hidden"
           >
@@ -80,6 +82,22 @@ export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
                 <ChevronDown size={16} />
               </motion.div>
             </button>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="locked"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 1, delay: 3.5 }}
+            className="mt-12 flex flex-col items-center gap-3 overflow-hidden text-center"
+          >
+            <p className="text-xs sm:text-sm font-sans uppercase tracking-[0.2em] text-champagne/60">
+              What happens after the countdown?
+            </p>
+            <p className="text-lg sm:text-xl font-cursive italic text-rose/90 drop-shadow-[0_0_15px_rgba(232,160,191,0.3)]">
+              Stick around and find out...
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
