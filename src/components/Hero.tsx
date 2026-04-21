@@ -20,7 +20,33 @@ export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <h2 className="text-rose font-cursive italic tracking-widest text-lg sm:text-2xl mb-4">Happy Birthday</h2>
+          <h2 className="text-rose font-cursive italic tracking-widest text-lg sm:text-2xl mb-4 h-8">
+            <AnimatePresence mode="wait">
+              {isUnlocked ? (
+                <motion.span
+                  key="unlocked-title"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                  className="block"
+                >
+                  Happy Birthday
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="locked-title"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.5 }}
+                  className="block"
+                >
+                  Almost there...
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </h2>
           
           <h1 className="text-5xl sm:text-7xl md:text-8xl font-serif text-glow mb-6 leading-tight flex justify-center flex-wrap">
             {nameLetters.map((letter, index) => (
