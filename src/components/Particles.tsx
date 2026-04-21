@@ -21,10 +21,10 @@ const Particles = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Sky background image with parallax */}
-      <motion.div
-        className="absolute inset-x-0 top-[-15%] h-[130%] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/photos/sky-bg.jpg')", y }}
+      {/* Sky background image locked in place */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/photos/sky-bg.jpg')" }}
       />
 
       {/* Dark overlay for text readability */}
