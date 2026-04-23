@@ -116,6 +116,16 @@ html.theme-4 {
   --color-gold: #c084fc;
 }
 
+/* Theme 5: Cinematic Orchestral — Eye Of The Untold Her / Echo In The Dark */
+html.theme-5 {
+  --color-rose: #10b981;
+  --color-blush: #d1fae5;
+  --color-champagne: #ecfdf5;
+  --color-deep-plum: #064e3b;
+  --color-midnight: #022c22;
+  --color-gold: #34d399;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-midnight); }

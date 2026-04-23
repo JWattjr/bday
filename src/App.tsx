@@ -31,7 +31,7 @@ function App() {
   // Apply song theme class to <html> so body background + all CSS vars cascade
   useEffect(() => {
     const html = document.documentElement;
-    ["theme-0","theme-1","theme-2","theme-3","theme-4"].forEach(c => html.classList.remove(c));
+    ["theme-0","theme-1","theme-2","theme-3","theme-4","theme-5"].forEach(c => html.classList.remove(c));
     html.classList.add(`theme-${trackIndex}`);
   }, [trackIndex]);
 
