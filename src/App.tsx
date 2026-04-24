@@ -31,7 +31,7 @@ function App() {
   // Apply song theme class to <html> so body background + all CSS vars cascade
   useEffect(() => {
     const html = document.documentElement;
-    ["theme-0","theme-1","theme-2","theme-3","theme-4","theme-5"].forEach(c => html.classList.remove(c));
+    config.songs.forEach((_, i) => html.classList.remove(`theme-${i}`));
     html.classList.add(`theme-${trackIndex}`);
   }, [trackIndex]);
 
@@ -53,7 +53,7 @@ function App() {
       <Particles />
       <AudioPlayer trackIndex={trackIndex} setTrackIndex={setTrackIndex} />
 
-      <main className="relative z-10 w-full mx-auto overflow-x-hidden flex flex-col gap-16 md:gap-24 pb-10">
+      <main className="relative z-10 w-full mx-auto flex flex-col gap-16 md:gap-24 pb-10">
         <Hero isUnlocked={isUnlocked} />
         
         {isUnlocked && (

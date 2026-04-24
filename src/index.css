@@ -31,14 +31,14 @@
     @apply bg-glass backdrop-blur-xl border border-glass-border shadow-2xl rounded-2xl;
   }
   .text-glow {
-    text-shadow: 0 0 20px rgba(232, 160, 191, 0.5);
+    text-shadow: 0 0 20px var(--color-rose);
   }
   .box-glow {
     box-shadow: 0 0 30px rgba(212, 168, 83, 0.3);
   }
   
   .animated-gradient-text {
-    background: linear-gradient(to right, #f7e7ce, #e8a0bf, #f5d5e0, #f7e7ce);
+    background: linear-gradient(to right, var(--color-champagne), var(--color-rose), var(--color-blush), var(--color-champagne));
     background-size: 300% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -124,6 +124,16 @@ html.theme-5 {
   --color-deep-plum: #064e3b;
   --color-midnight: #022c22;
   --color-gold: #34d399;
+}
+
+/* Theme 6: Warm Acoustic / Sunset Folk — Snap */
+html.theme-6 {
+  --color-rose: #f97316;
+  --color-blush: #ffedd5;
+  --color-champagne: #fff7ed;
+  --color-deep-plum: #431407;
+  --color-midnight: #2a0a03;
+  --color-gold: #fbbf24;
 }
 
 /* Custom scrollbar */

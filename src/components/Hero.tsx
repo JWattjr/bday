@@ -1,9 +1,46 @@
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { CountdownTimer } from "./CountdownTimer";
 import { config } from "../siteConfig";
 
+const CYCLING_FONTS = [
+  '"Playfair Display", serif',
+  '"Dancing Script", cursive',
+  '"Abril Fatface", serif',
+  '"Pacifico", cursive',
+  '"Cinzel", serif',
+  '"Lobster", cursive',
+  '"Satisfy", cursive',
+  '"Great Vibes", cursive',
+  '"Righteous", sans-serif',
+  '"Josefin Sans", sans-serif',
+];
+
+const GOOGLE_FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Abril+Fatface&family=Pacifico&family=Cinzel:wght@700&family=Lobster&family=Satisfy&family=Great+Vibes&family=Righteous&family=Josefin+Sans:wght@700&display=swap";
+
 export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
+  const [fontIndex, setFontIndex] = useState(0);
+
+  // Load the Google Fonts stylesheet once
+  useEffect(() => {
+    if (!document.querySelector(`link[href="${GOOGLE_FONTS_URL}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = GOOGLE_FONTS_URL;
+      document.head.appendChild(link);
+    }
+  }, []);
+
+  // Cycle through fonts every second
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFontIndex((prev) => (prev + 1) % CYCLING_FONTS.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const handleScroll = () => {
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
@@ -14,11 +51,12 @@ export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center justify-items-center px-6 pt-20 pb-10 z-10">
       
-      <div className="text-center max-w-3xl mx-auto space-y-6">
+      <div className="text-center max-w-3xl mx-auto space-y-6 overflow-visible">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
+          style={{ overflow: "visible" }}
         >
           <h2 className="text-rose font-cursive italic tracking-widest text-lg sm:text-2xl mb-4 h-8">
             <AnimatePresence mode="wait">
@@ -48,18 +86,30 @@ export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
             </AnimatePresence>
           </h2>
           
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-serif text-glow mb-6 leading-tight flex justify-center flex-wrap">
-            {nameLetters.map((letter, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.1, type: "spring", bounce: 0.5 }}
-                className="animated-gradient-text drop-shadow-[0_0_25px_rgba(232,160,191,0.6)]"
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
-            ))}
+          <h1
+            className="text-5xl sm:text-7xl md:text-8xl text-glow mb-6 flex justify-center flex-wrap overflow-visible py-6"
+            style={{ lineHeight: 1.6 }}
+          >
+            <AnimatePresence mode="popLayout">
+              {nameLetters.map((letter, index) => (
+                <motion.span
+                  key={`${fontIndex}-${index}`}
+                  initial={{ opacity: 0, y: -40, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: 40, filter: "blur(4px)" }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.05,
+                    type: "spring",
+                    bounce: 0.4,
+                  }}
+                  className="animated-gradient-text drop-shadow-[0_0_25px_var(--color-rose)] inline-block p-6 -m-6"
+                  style={{ fontFamily: CYCLING_FONTS[fontIndex] }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
+            </AnimatePresence>
           </h1>
         </motion.div>
 
