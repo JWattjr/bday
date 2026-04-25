@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { CountdownTimer } from "./CountdownTimer";
 import { config } from "../siteConfig";
+import ShinyText from "./reactbits/ShinyText";
 
 const CYCLING_FONTS = [
   '"Playfair Display", serif',
@@ -69,7 +70,13 @@ export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
                   transition={{ duration: 0.5 }}
                   className="block"
                 >
-                  Happy Birthday
+                  <ShinyText
+                    text="Happy Birthday"
+                    speed={3}
+                    color="var(--color-rose)"
+                    shineColor="var(--color-champagne)"
+                    className="text-lg sm:text-2xl font-cursive italic tracking-widest"
+                  />
                 </motion.span>
               ) : (
                 <motion.span
@@ -80,7 +87,13 @@ export const Hero = ({ isUnlocked }: { isUnlocked: boolean }) => {
                   transition={{ duration: 0.5 }}
                   className="block"
                 >
-                  Almost there...
+                  <ShinyText
+                    text="Almost there..."
+                    speed={4}
+                    color="var(--color-champagne)"
+                    shineColor="#ffffff"
+                    className="text-lg sm:text-2xl font-cursive italic tracking-widest"
+                  />
                 </motion.span>
               )}
             </AnimatePresence>

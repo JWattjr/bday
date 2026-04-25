@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Gift } from "lucide-react";
 import { config } from "../siteConfig";
 import confetti from "canvas-confetti";
+import DecryptedText from "./reactbits/DecryptedText";
 
 export const SurpriseReveal = () => {
   const [revealed, setRevealed] = useState(false);
@@ -40,7 +41,19 @@ export const SurpriseReveal = () => {
   return (
     <section className="py-32 px-6 relative z-10 flex flex-col items-center justify-center min-h-[70vh]">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">One Last Thing...</h2>
+        <h2 className="text-3xl md:text-4xl font-serif text-white mb-4">
+          <DecryptedText
+            text="One Last Thing..."
+            animateOn="view"
+            speed={60}
+            maxIterations={20}
+            sequential={true}
+            revealDirection="center"
+            characters="♥★✦✧❤♡⋆"
+            className="text-white"
+            encryptedClassName="text-rose/40"
+          />
+        </h2>
       </div>
 
       <div className="relative w-full max-w-lg mx-auto flex items-center justify-center min-h-[400px]">
@@ -72,7 +85,19 @@ export const SurpriseReveal = () => {
                   <img src={config.surprise.photo} alt="Surprise" className="w-full h-full object-cover rounded-lg" />
                 </div>
               )}
-              <p className="text-champagne text-xl md:text-2xl leading-relaxed font-cursive">{config.surprise.content}</p>
+              <p className="text-champagne text-xl md:text-2xl leading-relaxed font-cursive">
+                <DecryptedText
+                  text={config.surprise.content}
+                  animateOn="view"
+                  speed={40}
+                  maxIterations={15}
+                  sequential={true}
+                  revealDirection="start"
+                  characters="♥♡✦⋆★·"
+                  className="text-champagne"
+                  encryptedClassName="text-gold/30"
+                />
+              </p>
             </motion.div>
           )}
         </AnimatePresence>

@@ -13,6 +13,7 @@ import { AudioPlayer } from "./components/AudioPlayer";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { ScrollProgressBar } from "./components/ScrollProgressBar";
 import { EasterEgg } from "./components/EasterEgg";
+import ClickSpark from "./components/reactbits/ClickSpark";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,37 +43,46 @@ function App() {
   );
 
   return (
-    <div className="relative min-h-screen font-sans text-blush overflow-x-hidden">
-      <ScrollProgressBar />
-      <EasterEgg />
+    <ClickSpark
+      sparkColor="var(--color-gold)"
+      sparkSize={12}
+      sparkRadius={20}
+      sparkCount={10}
+      duration={500}
+      extraScale={1.2}
+    >
+      <div className="relative min-h-screen font-sans text-blush overflow-x-hidden">
+        <ScrollProgressBar />
+        <EasterEgg />
 
-      {/* Loading screen sits on top until done */}
-      {!loaded && <LoadingScreen onComplete={() => setLoaded(true)} />}
+        {/* Loading screen sits on top until done */}
+        {!loaded && <LoadingScreen onComplete={() => setLoaded(true)} />}
 
-      <InteractiveEffects />
-      <Particles />
-      <AudioPlayer trackIndex={trackIndex} setTrackIndex={setTrackIndex} />
+        <InteractiveEffects />
+        <Particles />
+        <AudioPlayer trackIndex={trackIndex} setTrackIndex={setTrackIndex} />
 
-      <main className="relative z-10 w-full mx-auto flex flex-col gap-16 md:gap-24 pb-10">
-        <Hero isUnlocked={isUnlocked} />
-        
-        {isUnlocked && (
-          <>
-            <Divider />
-            <PhotoShowcase />
-            <Divider />
-            <MemoryTimeline />
-            <Divider />
-            <ReasonsCarousel />
-            <Divider />
-            <LoveLetters />
-            <Divider />
-            <SurpriseReveal />
-            <Footer />
-          </>
-        )}
-      </main>
-    </div>
+        <main className="relative z-10 w-full mx-auto flex flex-col gap-16 md:gap-24 pb-10">
+          <Hero isUnlocked={isUnlocked} />
+          
+          {isUnlocked && (
+            <>
+              <Divider />
+              <PhotoShowcase />
+              <Divider />
+              <MemoryTimeline />
+              <Divider />
+              <ReasonsCarousel />
+              <Divider />
+              <LoveLetters />
+              <Divider />
+              <SurpriseReveal />
+              <Footer />
+            </>
+          )}
+        </main>
+      </div>
+    </ClickSpark>
   );
 }
 

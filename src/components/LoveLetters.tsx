@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { config } from "../siteConfig";
 import { X } from "lucide-react";
 import { TiltCard } from "./TiltCard";
+import StarBorder from "./reactbits/StarBorder";
 
 export const LoveLetters = () => {
   const [activeLetter, setActiveLetter] = useState<number | null>(null);
@@ -23,24 +24,31 @@ export const LoveLetters = () => {
             transition={{ delay: index * 0.2 }}
             className="flex flex-col items-center"
           >
-          <TiltCard intensity={10}>
-            <div 
-              onClick={() => setActiveLetter(index)}
-              className="relative w-48 h-32 bg-white/10 backdrop-blur-md rounded-md cursor-pointer group shadow-xl"
-            >
-              {/* Envelope Flap (Stylized) */}
-              <div className="absolute top-0 left-0 w-full h-0 border-l-[96px] border-l-transparent border-r-[96px] border-r-transparent border-t-[60px] border-t-white/10 z-10"></div>
-              
-              {/* Wax Seal */}
-              <motion.div 
-                animate={{ rotate: [0, -15, 15, -10, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
-                className="absolute top-[45px] left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold shadow-[0_0_15px_rgba(212,168,83,0.6)] flex items-center justify-center z-20 group-hover:scale-110 transition-transform"
+          <StarBorder
+            color="var(--color-gold)"
+            speed="4s"
+            thickness={2}
+            className="w-auto"
+          >
+            <TiltCard intensity={10}>
+              <div 
+                onClick={() => setActiveLetter(index)}
+                className="relative w-48 h-32 bg-white/10 backdrop-blur-md rounded-md cursor-pointer group shadow-xl"
               >
-                <span className="text-midnight font-serif text-xs">♥</span>
-              </motion.div>
-            </div>
-          </TiltCard>
+                {/* Envelope Flap (Stylized) */}
+                <div className="absolute top-0 left-0 w-full h-0 border-l-[96px] border-l-transparent border-r-[96px] border-r-transparent border-t-[60px] border-t-white/10 z-10"></div>
+                
+                {/* Wax Seal */}
+                <motion.div 
+                  animate={{ rotate: [0, -15, 15, -10, 10, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, repeatDelay: 3 }}
+                  className="absolute top-[45px] left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gold shadow-[0_0_15px_rgba(212,168,83,0.6)] flex items-center justify-center z-20 group-hover:scale-110 transition-transform"
+                >
+                  <span className="text-midnight font-serif text-xs">♥</span>
+                </motion.div>
+              </div>
+            </TiltCard>
+          </StarBorder>
             <span className="mt-4 font-cursive italic text-champagne/80 text-lg">{letter.label}</span>
           </motion.div>
         ))}
