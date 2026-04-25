@@ -32,7 +32,6 @@ export const config = {
     { url: "/songs/Martin_Garrix_Third_≡_Party_Carry_You_feat_Oaks_Declan_J_Donovan.mp3", title: "Carry You — Martin Garrix & Third Party" },
     { url: "/songs/Sigala_-_Easy_Love(256k).mp3", title: "Easy Love — Sigala" },
     { url: "/songs/The_Chainsmokers,_ILLENIUM_Takeaway_Official_Video_ft_Lennon_Stella256k.mp3", title: "Takeaway — The Chainsmokers & ILLENIUM" },
-    { url: "/songs/The_Chainsmokers_Coldplay_Something_Just_Like_This_Official_Lyric.mp3", title: "Something Just Like This — The Chainsmokers & Coldplay" },
     { url: "/songs/Lindsey_Stirling–Eye_Of_The_Untold_Her_Echo_In_The_Dark_ft_Chrissy.mp3", title: "Eye Of The Untold Her / Echo In The Dark — Lindsey Stirling ft. Chrissy" },
     { url: "/songs/Rosa_Linn_-_Snap__Lyrics__High_And_Fast(256k).mp3", title: "Snap (High and Fast) — Rosa Linn" },
   ],

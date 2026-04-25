@@ -106,18 +106,8 @@ html.theme-3 {
   --color-gold: #d946ef;
 }
 
-/* Theme 4: Dreamy Cosmic — Something Just Like This */
+/* Theme 4: Cinematic Orchestral — Eye Of The Untold Her / Echo In The Dark */
 html.theme-4 {
-  --color-rose: #a78bfa;
-  --color-blush: #ede9fe;
-  --color-champagne: #f3f4f6;
-  --color-deep-plum: #2e1065;
-  --color-midnight: #0f172a;
-  --color-gold: #c084fc;
-}
-
-/* Theme 5: Cinematic Orchestral — Eye Of The Untold Her / Echo In The Dark */
-html.theme-5 {
   --color-rose: #10b981;
   --color-blush: #d1fae5;
   --color-champagne: #ecfdf5;
@@ -126,8 +116,8 @@ html.theme-5 {
   --color-gold: #34d399;
 }
 
-/* Theme 6: Warm Acoustic / Sunset Folk — Snap */
-html.theme-6 {
+/* Theme 5: Warm Acoustic / Sunset Folk — Snap */
+html.theme-5 {
   --color-rose: #f97316;
   --color-blush: #ffedd5;
   --color-champagne: #fff7ed;
