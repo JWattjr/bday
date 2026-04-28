@@ -126,6 +126,16 @@ html.theme-5 {
   --color-gold: #fbbf24;
 }
 
+/* Theme 6: Endless Summer / Upbeat House — Till The End */
+html.theme-6 {
+  --color-rose: #f43f5e;
+  --color-blush: #ffe4e6;
+  --color-champagne: #fef08a;
+  --color-deep-plum: #4c1d95;
+  --color-midnight: #2e1065;
+  --color-gold: #facc15;
+}
+
 /* ── StarBorder keyframes (ReactBits) ─────────────────────────────────── */
 @keyframes star-movement-bottom {
   0%   { transform: translate(0%, 0%); opacity: 1; }
