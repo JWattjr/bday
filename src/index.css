@@ -136,6 +136,16 @@ html.theme-6 {
   --color-gold: #facc15;
 }
 
+/* Theme 7: Vibrant Pop / Energetic — Shower */
+html.theme-7 {
+  --color-rose: #ff2a5f;
+  --color-blush: #ffe6eb;
+  --color-champagne: #fff0f5;
+  --color-deep-plum: #3b0024;
+  --color-midnight: #1a0010;
+  --color-gold: #ff1493;
+}
+
 /* ── StarBorder keyframes (ReactBits) ─────────────────────────────────── */
 @keyframes star-movement-bottom {
   0%   { transform: translate(0%, 0%); opacity: 1; }
