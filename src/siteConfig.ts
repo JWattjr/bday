@@ -35,7 +35,6 @@ export const config = {
     { url: "/songs/Lindsey_Stirling–Eye_Of_The_Untold_Her_Echo_In_The_Dark_ft_Chrissy.mp3", title: "Eye Of The Untold Her / Echo In The Dark — Lindsey Stirling ft. Chrissy" },
     { url: "/songs/Rosa_Linn_-_Snap__Lyrics__High_And_Fast(256k).mp3", title: "Snap (High and Fast) — Rosa Linn" },
     { url: "/songs/Jonas_Blue,_Sam_Feldt,_Sam_DeRosa,_Endless_Summer_Till_The_End_Visualiser.mp3", title: "Till The End — Jonas Blue, Sam Feldt, Sam DeRosa (Endless Summer)" },
-    { url: "/songs/Becky_G_-_Shower__Official_Video_(256k).mp3", title: "Shower — Becky G" },
   ],
   closingLine: "Happy birthday to the love of my life.",
 };
